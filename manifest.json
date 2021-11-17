@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+  
+    "name": "Autocomple Extension",
+    "description": "This extension will take your writing skills to the next level",
+    "version": "1.0",
+  
+    "browser_action": {
+     "default_icon": "icon.png"
+    },
+    "background" :{
+        "scripts": ["./background.js"]
+    },
+    "permissions": [
+     "tabs",
+     "https://mail.google.com/*"
+     ]
+  }
