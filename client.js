@@ -6,8 +6,10 @@ var autocompleteText = '';
 if (window.location.hostname === 'mail.google.com') {
 
     // TODO: add listner to multiple inputs
-    element.removeEventListener('DOMSubtreeModified', myFunction);
-    element.addEventListener('DOMSubtreeModified', myFunction);
+
+    element.removeEventListener('DOMSubtreeModified', myFunction, false);
+
+    element.addEventListener('DOMSubtreeModified', myFunction, false);
 
     function myFunction(e) {
         //console.log(element.innerText);
@@ -17,7 +19,7 @@ if (window.location.hostname === 'mail.google.com') {
     // checks if there is something to autocomplete
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
-        element.removeEventListener('DOMSubtreeModified', myFunction);
+        element.removeEventListener('DOMSubtreeModified', myFunction, false);
 
         this.removeAutocomplete(document.getElementsByClassName('autocomp'))
 
@@ -40,7 +42,7 @@ if (window.location.hostname === 'mail.google.com') {
             this.removeAutocomplete(document.getElementsByClassName('autocomp'))
         }
 
-        element.addEventListener('DOMSubtreeModified', myFunction);
+        element.addEventListener('DOMSubtreeModified', myFunction, false);
 
     })
 
